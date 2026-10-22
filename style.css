@@ -1,0 +1,194 @@
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+
+/* ÁREA DO JOGO */
+
+#jogo {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* FUNDO DO CENÁRIO */
+
+#fundo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    top: 0;
+    left: 0;
+}
+
+
+/* CAIXA DE DIÁLOGO */
+
+#dialogo {
+    position: absolute;
+    left: 20%;
+    bottom: 3%;
+
+    width: 60%;
+    height: 25%;
+
+    border: 2px solid black;
+    border-radius: 20px;
+
+    background-color: white;
+
+    padding: 20px;
+}
+
+
+/* PORTAS */
+
+#porta_cozinha {
+    position: absolute;
+    left: 90%;
+    top: 50%;
+}
+
+#porta_quarto {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+}
+
+#porta_fora {
+    position: absolute;
+    left: 90%;
+    top: 50%;
+}
+
+#porta_cozinha_fora {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+}
+
+
+/* PERSONAGEM NO CENÁRIO */
+
+#personagem {
+    position: absolute;
+    bottom: 28%;
+    left: 38%;
+
+    width: 200px;
+    height: 420px;
+
+    background-color: pink;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.15s;
+}
+
+#personagem:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+
+/* FILTRO DO MODO DE DIÁLOGO */
+
+/*
+    Essa camada fica sobre o cenário inteiro.
+
+    Quando o diálogo começa:
+    - o cenário fica escuro
+    - as portas ficam escuras
+    - o personagem do cenário fica escuro
+
+    O JavaScript controla quando ela aparece.
+*/
+
+#filtro-dialogo {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    display: none;
+}
+
+/* PERSONAGEM EM DESTAQUE DURANTE O DIÁLOGO */
+
+/*
+    Esse NÃO é o personagem que está no cenário.
+
+    É uma segunda representação dele,
+    que aparece ao lado da caixa de diálogo.
+
+    Depois vamos substituir esse retângulo
+    pelo PNG do personagem.
+*/
+
+/* PERSONAGEM QUE NÃO ESTÁ FALANDO */
+.escuro {
+    filter: brightness(0.35);
+    transition: filter 0.3s;
+}
+
+/* PERSONAGEM QUE ESTÁ FALANDO */
+.destaque {
+    filter: brightness(1);
+    transition: filter 0.3s;
+}
+
+#personagem-dialogo {
+    position: absolute;
+
+    right: 8%;
+    bottom: 10%;
+
+    width: 250px;
+    height: 500px;
+
+    background-color: pink;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#protagonista-dialogo {
+    position: absolute;
+
+    left: 8%;
+    bottom: 10%;
+
+    width: 250px;
+    height: 500px;
+
+    background-color: lightblue;
+    color: black;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}

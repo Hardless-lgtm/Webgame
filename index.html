@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meu jogo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ÁREA PRINCIPAL DO JOGO -->
+    <main id="jogo">
+
+        <!-- IMAGEM DO CENÁRIO -->
+        <img id="fundo" src="" alt="">
+
+
+        <!-- CAMINHOS / PORTAS -->
+        
+        <!-- Porta que aparece no quarto e leva para a cozinha -->
+        <button
+            id="porta_cozinha"
+            data-cenario="quarto"
+            data-destino="cozinha">
+            Porta
+        </button>
+
+        <!-- Porta que aparece do lado de fora e leva para a cozinha -->
+        <button
+            id="porta_cozinha_fora"
+            data-cenario="fora"
+            data-destino="cozinha">
+            Porta
+        </button>
+
+        <!-- Porta que aparece na cozinha e leva para o quarto -->
+        <button
+            id="porta_quarto"
+            data-cenario="cozinha"
+            data-destino="quarto">
+            Porta
+        </button>
+
+        <!-- Porta que aparece na cozinha e leva para fora -->
+        <button
+            id="porta_fora"
+            data-cenario="cozinha"
+            data-destino="fora">
+            Porta
+        </button>
+
+
+        <!-- PERSONAGEM NO CENÁRIO -->
+        
+        <!--
+            Esse é o NPC que fica normalmente no cenário.
+            Ele continua aqui mesmo quando um diálogo começa.
+        -->
+        <div
+            id="personagem"
+            data-cenario="cozinha">
+            NPC
+        </div>
+
+
+        <!--
+            CAMADA DE ESCURECIMENTO
+
+            Fica por cima do cenário quando um diálogo começa.
+            Ela escurece tudo que estiver atrás dela:
+            cenário, portas e personagem.
+        -->
+        <div id="filtro-dialogo"></div>
+
+        <!-- PROTAGONISTA EM DESTAQUE DURANTE O DIÁLOGO -->
+        <div id="protagonista-dialogo">
+            Protagonista
+        </div>
+
+        <!--
+            PERSONAGEM EM DESTAQUE
+
+            É uma representação separada do NPC.
+            Futuramente vamos colocar aqui o PNG do personagem.
+
+            Ele só aparece durante o diálogo.
+        -->
+            
+        <div id="personagem-dialogo">
+            NPC
+        </div>
+
+
+        <!-- CAIXA DE DIÁLOGO -->
+
+        <!--
+            Começa escondida.
+            O JavaScript mostra quando o jogador inicia uma conversa.
+        -->
+        <div id="dialogo" style="display: none;">
+
+            <!-- Nome de quem está falando -->
+            <h3 id="remetente"></h3>
+
+            <!-- Texto da fala -->
+            <p id="conteudo-dialogo"></p>
+
+            <!-- Avança para a próxima fala -->
+            <button id="continuar-dialogo">
+                Continuar
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT DO JOGO -->
+    <script src="script.js"></script>
+
+</body>
+</html>

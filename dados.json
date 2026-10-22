@@ -1,0 +1,33 @@
+{
+    "cenarios": {
+        "quarto": {
+            "fundo": "assets/cenarios/quarto.png"
+        },
+        "cozinha": {
+            "fundo": "assets/cenarios/cozinha.png"
+        },
+        "fora": {
+            "fundo": "assets/cenarios/fora.png"
+        }
+    },
+
+    "dialogos": {
+        "dialogo-1": {
+            "interagivel": "personagem",
+            "falas": [
+                {
+                "conteudo": "Ah... você finalmente acordou.",
+                "remetente": "Aldren"
+                },
+                {
+                "conteudo": "O quê? Onde eu estou?",
+                "remetente": "Você"
+                },
+                {
+                "conteudo": "Em sua casa. Mas não temos tempo para conversar.",
+                "remetente": "Aldren"
+                }
+            ]
+        }
+    }
+}
