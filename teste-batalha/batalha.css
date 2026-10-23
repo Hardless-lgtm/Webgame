@@ -1,42 +1,91 @@
 
+/* #region DIMENSIONAMENTO GLOBAL */
+/* Faz larguras e alturas incluírem bordas e espaçamentos. */
 * {
     box-sizing: border-box;
 }
+/* #endregion */
 
+/* #region ÁREAS DA TELA */
+/* Distribui verticalmente as três áreas da batalha pela altura da tela. */
 body {
     margin: 0;
-    min-height: 100vh;
+    height: 100vh;
     background-color: #151515;
     color: white;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
 }
 
+/* Área de informações do boss */
+/* Define a área superior reservada às informações do boss. */
+#informacoes-boss {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* 50vh equivale à metade da altura visível da janela. */
+    flex: 0 0 50vh; /* Mantém exatamente metade da altura no layout flexível. */
+    display: flex;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Área de informações do protagonista */
+
+/* Vida Protagonista */
+
+/* Define a área inferior reservada às informações do protagonista. */
+#informacoes-nave {
+    position: relative;
+    width: 100%;
+    height: 20vh; /* Reserva os 20% inferiores da altura da tela para a vida. */
+    flex: 0 0 20vh; /* Impede que a área encolha ou cresça no layout flexível. */
+    display: flex;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Desenha o fundo da barra de vida do protagonista. */
+#vida-nave-container {
+    position: relative;
+    width: 25%;
+    height: 20%; /* Define a altura da barra em relação à área de vida. */
+    background-color: white;
+
+    display: block;
+}
+
+/* Centraliza a arena no espaço destinado à batalha. */
 #campo {
     position: relative;
     overflow: visible;
+    width: 100%;
+    height: 30vh; /* Reserva 30% da altura da tela para a batalha. */
+    flex: 0 0 30vh; /* Mantém a proporção da área central. */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Área de batalha */
+/* Desenha a arena e recorta nela os elementos de batalha. */
 #arena {
     position: relative;
     z-index: 1;
     width: 600px;
-    height: 350px;
-    max-width: 95vw;
-    max-height: 65vh;
+    height: 100%; /* Faz a arena preencher verticalmente a área central. */
+    max-width: 95vw; /* Evita que a arena fique mais larga que a tela. */
+    max-height: 100%; /* Impede a arena de ultrapassar a altura disponível. */
 
     border: 3px solid white;
     background-color: black;
 
-    overflow: hidden;
+    overflow: hidden; /* Recorta projéteis fora da arena e mantém o jogo contido. */
 }
 
-/* Alma controlada pelo mouse */
+/* Estiliza o marcador controlado pelo mouse dentro da arena. */
 #alma {
     position: absolute;
 
@@ -46,11 +95,11 @@ body {
     background-color: red;
     border-radius: 50%;
 
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); /* Alinha o centro da alma com as coordenadas do mouse. */
     pointer-events: none;
 }
 
-/* PROJÉTEIS */
+/* Estiliza os projéteis lançados durante os ataques. */
 .projetil {
     z-index: 2;
     position: absolute;
@@ -60,3 +109,15 @@ body {
     border-radius: 50%;
     pointer-events: none;
 }
+
+/* Mostra o ponto de aviso fixo na posição correspondente da tela. */
+.ponto-aviso-ataque {
+    position: fixed; /* Posiciona o aviso em relação à janela inteira, não à arena. */
+    z-index: 4;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border-radius: 50%;
+    pointer-events: none;
+}
+/* #endregion */

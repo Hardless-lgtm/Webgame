@@ -1,21 +1,41 @@
 <!DOCTYPE html>
+<!-- #region CONFIGURAÇÃO DO DOCUMENTO -->
+<!-- Define o idioma para leitores de tela e ferramentas do navegador. -->
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> <!-- Permite exibir acentos e outros caracteres corretamente. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ajusta a escala da página ao tamanho do dispositivo. -->
     <title>Batalha</title>
     <link rel="stylesheet" href="batalha.css">
 </head>
-<body>
-    <h1>Batalha</h1>
+<!-- #endregion -->
 
+<!-- #region INTERFACE DA BATALHA -->
+<!-- Organiza as áreas do boss, arena e vida do protagonista. -->
+<body>
+    <!-- Área superior destinada ao boss e aos avisos dos ataques. -->
+    <section id="informacoes-boss">
+
+    </section>
+    <!-- Área central da batalha; a arena limita o movimento e os projéteis. -->
     <main id="campo">
         <div id="arena">
+            <!-- Marcador do jogador, controlado pelo mouse. -->
             <div id="alma"></div>
         </div>
     </main>
+    <!-- Área inferior que contém a barra de vida do protagonista. -->
+    <section id="informacoes-nave">
+        <div id="vida-nave-container">
+            <!-- Preenchimento da barra de vida. -->
+            <div id="vida-nave"></div>
+        </div>
+    </section>
 
+    <!-- Define as funções dos padrões antes de carregar quem as executa. -->
     <script src="ataques.js"></script>
+    <!-- Controla a arena, os movimentos, os projéteis e o início do ataque. -->
     <script src="batalha.js"></script>
 </body>
+<!-- #endregion -->
 </html>

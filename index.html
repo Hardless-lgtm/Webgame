@@ -1,25 +1,25 @@
 <!DOCTYPE html>
+<!-- #region CONFIGURAÇÃO DO DOCUMENTO -->
+<!-- Define o idioma da página para leitores de tela e ferramentas do navegador. -->
 <html lang="pt-BR">
 
+<!-- Configura codificação, título e arquivo de estilos. -->
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> <!-- Permite exibir corretamente caracteres como acentos. -->
     <title>Meu jogo</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
+<!-- #endregion -->
 
+<!-- #region INTERFACE DO JOGO -->
+<!-- Contém o cenário, as interações e a interface de diálogo. -->
 <body>
-
-    <!-- ÁREA PRINCIPAL DO JOGO -->
+    <!-- Serve de referência para posicionar todos os elementos do jogo. -->
     <main id="jogo">
-
-        <!-- IMAGEM DO CENÁRIO -->
+        <!-- JavaScript escolhe a imagem conforme o cenário atual. -->
         <img id="fundo" src="" alt="">
 
-
-        <!-- CAMINHOS / PORTAS -->
-        
-        <!-- Porta que aparece no quarto e leva para a cozinha -->
+        <!-- Cada porta aparece no cenário indicado e leva ao destino configurado. -->
         <button
             id="porta_cozinha"
             data-cenario="quarto"
@@ -27,7 +27,6 @@
             Porta
         </button>
 
-        <!-- Porta que aparece do lado de fora e leva para a cozinha -->
         <button
             id="porta_cozinha_fora"
             data-cenario="fora"
@@ -35,7 +34,6 @@
             Porta
         </button>
 
-        <!-- Porta que aparece na cozinha e leva para o quarto -->
         <button
             id="porta_quarto"
             data-cenario="cozinha"
@@ -43,7 +41,6 @@
             Porta
         </button>
 
-        <!-- Porta que aparece na cozinha e leva para fora -->
         <button
             id="porta_fora"
             data-cenario="cozinha"
@@ -51,74 +48,40 @@
             Porta
         </button>
 
-
-        <!-- PERSONAGEM NO CENÁRIO -->
-        
-        <!--
-            Esse é o NPC que fica normalmente no cenário.
-            Ele continua aqui mesmo quando um diálogo começa.
-        -->
+        <!-- NPC interativo que aparece normalmente no cenário da cozinha. -->
         <div
             id="personagem"
+            data-tipo="personagem"
             data-cenario="cozinha">
             NPC
         </div>
 
-
-        <!--
-            CAMADA DE ESCURECIMENTO
-
-            Fica por cima do cenário quando um diálogo começa.
-            Ela escurece tudo que estiver atrás dela:
-            cenário, portas e personagem.
-        -->
+        <!-- Escurece o cenário ao iniciar uma conversa. -->
         <div id="filtro-dialogo"></div>
 
-        <!-- PROTAGONISTA EM DESTAQUE DURANTE O DIÁLOGO -->
+        <!-- Representação do protagonista usada durante os diálogos. -->
         <div id="protagonista-dialogo">
             Protagonista
         </div>
 
-        <!--
-            PERSONAGEM EM DESTAQUE
-
-            É uma representação separada do NPC.
-            Futuramente vamos colocar aqui o PNG do personagem.
-
-            Ele só aparece durante o diálogo.
-        -->
-            
+        <!-- Representação ampliada do NPC, exibida durante os diálogos. -->
         <div id="personagem-dialogo">
             NPC
         </div>
 
-
-        <!-- CAIXA DE DIÁLOGO -->
-
-        <!--
-            Começa escondida.
-            O JavaScript mostra quando o jogador inicia uma conversa.
-        -->
+        <!-- Caixa inicialmente escondida; o JavaScript preenche e exibe suas falas. -->
         <div id="dialogo" style="display: none;">
-
-            <!-- Nome de quem está falando -->
+            <!-- Nome e texto da fala atual são preenchidos pelo JavaScript. -->
             <h3 id="remetente"></h3>
-
-            <!-- Texto da fala -->
             <p id="conteudo-dialogo"></p>
-
-            <!-- Avança para a próxima fala -->
             <button id="continuar-dialogo">
                 Continuar
             </button>
-
         </div>
-
     </main>
 
-
-    <!-- JAVASCRIPT DO JOGO -->
+    <!-- Carrega o código que controla cenários, portas e diálogos. -->
     <script src="script.js"></script>
-
 </body>
+<!-- #endregion -->
 </html>

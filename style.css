@@ -1,50 +1,48 @@
-/* CONFIGURAÇÕES GERAIS */
-
+/* #region CONFIGURAÇÃO GLOBAL */
+/* Inclui bordas e preenchimentos no tamanho declarado de cada elemento. */
 * {
     box-sizing: border-box;
 }
 
+/* Faz a página ocupar a janela sem margens ou barras de rolagem. */
 html, body {
     width: 100%;
     height: 100%;
     margin: 0;
     overflow: hidden;
 }
+/* #endregion */
 
-
-/* ÁREA DO JOGO */
-
+/* #region CENÁRIO E NAVEGAÇÃO */
+/* Ocupa a tela e serve de referência para os elementos posicionados. */
 #jogo {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100vw; /* Usa toda a largura visível da janela. */
+    height: 100vh; /* Usa toda a altura visível da janela. */
+    overflow: hidden; /* Recorta elementos que ultrapassarem os limites do jogo. */
 }
 
-
-/* FUNDO DO CENÁRIO */
-
+/* Estica a imagem pelo espaço do jogo sem deformar suas proporções. */
 #fundo {
     position: absolute;
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: cover; /* Preenche a área; pode recortar sobras da imagem. */
 
     top: 0;
     left: 0;
 }
 
 
-/* CAIXA DE DIÁLOGO */
-
+/* Posiciona e estiliza a caixa que mostra as falas. */
 #dialogo {
     position: absolute;
-    left: 20%;
-    bottom: 3%;
+    left: 20%; /* Mantém a caixa centralizada horizontalmente. */
+    bottom: 3%; /* Deixa uma pequena margem abaixo da caixa. */
 
-    width: 60%;
-    height: 25%;
+    width: 60%; /* Ocupa pouco mais da metade da largura da tela. */
+    height: 25%; /* Reserva um quarto da altura para as falas. */
 
     border: 2px solid black;
     border-radius: 20px;
@@ -54,9 +52,7 @@ html, body {
     padding: 20px;
 }
 
-
-/* PORTAS */
-
+/* Define a posição das portas em cada cenário. */
 #porta_cozinha {
     position: absolute;
     left: 90%;
@@ -80,10 +76,10 @@ html, body {
     left: 50%;
     bottom: 10%;
 }
+/* #endregion */
 
-
-/* PERSONAGEM NO CENÁRIO */
-
+/* #region PERSONAGENS E DIÁLOGO */
+/* Posiciona o NPC e centraliza seu texto de identificação. */
 #personagem {
     position: absolute;
     bottom: 28%;
@@ -95,7 +91,7 @@ html, body {
     background-color: pink;
     color: black;
 
-    display: flex;
+    display: flex; /* Permite centralizar o conteúdo dentro do personagem. */
     justify-content: center;
     align-items: center;
 
@@ -103,24 +99,12 @@ html, body {
 }
 
 #personagem:hover {
-    transform: scale(1.05);
-    cursor: pointer;
+    transform: scale(1.05); /* Aumenta levemente o NPC para indicar que é interativo. */
+    cursor: pointer; /* Mostra que o jogador pode clicar no personagem. */
 }
 
 
-/* FILTRO DO MODO DE DIÁLOGO */
-
-/*
-    Essa camada fica sobre o cenário inteiro.
-
-    Quando o diálogo começa:
-    - o cenário fica escuro
-    - as portas ficam escuras
-    - o personagem do cenário fica escuro
-
-    O JavaScript controla quando ela aparece.
-*/
-
+/* Cobre a tela com uma camada escura enquanto o diálogo está aberto. */
 #filtro-dialogo {
     position: absolute;
     top: 0;
@@ -129,30 +113,18 @@ html, body {
     width: 100%;
     height: 100%;
 
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.6); /* Transparência permite ver o cenário escurecido. */
 
-    display: none;
+    display: none; /* O JavaScript mostra a camada ao iniciar uma conversa. */
 }
 
-/* PERSONAGEM EM DESTAQUE DURANTE O DIÁLOGO */
-
-/*
-    Esse NÃO é o personagem que está no cenário.
-
-    É uma segunda representação dele,
-    que aparece ao lado da caixa de diálogo.
-
-    Depois vamos substituir esse retângulo
-    pelo PNG do personagem.
-*/
-
-/* PERSONAGEM QUE NÃO ESTÁ FALANDO */
+/* Escurece o personagem que não está falando no momento. */
 .escuro {
     filter: brightness(0.35);
     transition: filter 0.3s;
 }
 
-/* PERSONAGEM QUE ESTÁ FALANDO */
+/* Deixa iluminado o personagem que está falando no momento. */
 .destaque {
     filter: brightness(1);
     transition: filter 0.3s;
@@ -169,10 +141,10 @@ html, body {
 
     background-color: pink;
 
-    display: none;
+    display: none; /* Só aparece quando o JavaScript abre um diálogo. */
 
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente. */
+    align-items: center; /* Centraliza o conteúdo verticalmente. */
 }
 
 #protagonista-dialogo {
@@ -187,8 +159,9 @@ html, body {
     background-color: lightblue;
     color: black;
 
-    display: none;
+    display: none; /* Só aparece quando o JavaScript abre um diálogo. */
 
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente. */
+    align-items: center; /* Centraliza o conteúdo verticalmente. */
 }
+/* #endregion */
